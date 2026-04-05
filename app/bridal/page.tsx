@@ -4,7 +4,7 @@ export default function BridalPage() {
   // Curated bridal portfolio images for a luxury wedding aesthetic
   const portfolio = [
     {
-      src: "https://images.unsplash.com/photo-1594463750939-ebb28c3f7f75?q=80&w=800&auto=format&fit=crop",
+      src: "https://images.unsplash.com/photo-1733937110329-7bfb323fc567?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       title: "The Signature Glow",
       type: "Traditional Barat"
     },
