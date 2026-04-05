@@ -62,7 +62,7 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
           <div className="aspect-[4/5] overflow-hidden bg-zinc-100 shadow-2xl group">
             <img 
-              src="https://images.unsplash.com/photo-1632345033839-21c73b2f3d39?q=80&w=1200" 
+              src="https://plus.unsplash.com/premium_photo-1675107358035-fbd55fbfd92a?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" 
               alt="Nail and Hair Care" 
               className="object-cover w-full h-full grayscale group-hover:grayscale-0 transition-all duration-1000 scale-100 group-hover:scale-105" 
             />

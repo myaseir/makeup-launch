@@ -2,12 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
-  // Transition background on scroll
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
@@ -17,6 +18,9 @@ export default function Navbar() {
   }, []);
 
   const closeMenu = () => setIsOpen(false);
+
+  // Added : string type here
+  const isActive = (path: string) => pathname === path;
 
   return (
     <nav 
@@ -29,17 +33,27 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 md:px-12">
         <div className="flex justify-between items-center h-10">
           
-          {/* 1. Desktop Left Navigation - Focused on Services */}
+          {/* 1. Desktop Left Navigation */}
           <div className="hidden md:flex gap-10 items-center flex-1">
-            <Link href="/bridal" className="text-[10px] tracking-[0.3em] uppercase font-bold text-zinc-900 hover:text-rose-900 transition-colors">
+            <Link 
+              href="/bridal" 
+              className={`text-[10px] tracking-[0.3em] uppercase transition-colors ${
+                isActive("/bridal") ? "font-bold text-zinc-900" : "font-semibold text-zinc-500 hover:text-zinc-900"
+              }`}
+            >
               The Bridal Edit
             </Link>
-            <Link href="/services" className="text-[10px] tracking-[0.3em] uppercase font-semibold text-zinc-500 hover:text-zinc-900 transition-colors">
+            <Link 
+              href="/services" 
+              className={`text-[10px] tracking-[0.3em] uppercase transition-colors ${
+                isActive("/services") ? "font-bold text-zinc-900" : "font-semibold text-zinc-500 hover:text-zinc-900"
+              }`}
+            >
               Services
             </Link>
           </div>
 
-          {/* 2. Central Logo - Refined Spacing */}
+          {/* 2. Central Logo */}
           <div className="flex-shrink-0 z-50">
             <Link 
               href="/" 
@@ -52,7 +66,12 @@ export default function Navbar() {
 
           {/* 3. Desktop Right Navigation */}
           <div className="hidden md:flex gap-10 items-center justify-end flex-1">
-            <Link href="/about" className="text-[10px] tracking-[0.3em] uppercase font-semibold text-zinc-500 hover:text-zinc-900 transition-colors">
+            <Link 
+              href="/about" 
+              className={`text-[10px] tracking-[0.3em] uppercase transition-colors ${
+                isActive("/about") ? "font-bold text-zinc-900" : "font-semibold text-zinc-500 hover:text-zinc-900"
+              }`}
+            >
               Our Story
             </Link>
             <Link 
@@ -80,7 +99,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* 5. Mobile Menu Overlay - Wedding Aesthetic */}
+      {/* 5. Mobile Menu Overlay */}
       <div 
         className={`fixed inset-0 bg-white z-[105] transition-all duration-500 ease-in-out md:hidden flex flex-col items-center justify-center ${
           isOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
@@ -90,25 +109,25 @@ export default function Navbar() {
 
         <nav className="relative z-10 flex flex-col items-center gap-10 text-center">
           <div className={`transition-all duration-700 delay-100 ${isOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
-            <Link href="/" onClick={closeMenu} className="text-[10px] tracking-[0.5em] uppercase font-bold text-rose-900">
+            <Link href="/" onClick={closeMenu} className={`text-[10px] tracking-[0.5em] uppercase font-bold ${isActive("/") ? "text-zinc-900 underline underline-offset-8" : "text-rose-900"}`}>
               Welcome
             </Link>
           </div>
 
           <div className={`transition-all duration-700 delay-200 ${isOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
-            <Link href="/bridal" onClick={closeMenu} className="text-4xl tracking-tighter font-serif italic text-zinc-900 hover:text-rose-900 transition-colors">
+            <Link href="/bridal" onClick={closeMenu} className={`text-4xl tracking-tighter font-serif italic transition-colors ${isActive("/bridal") ? "text-zinc-950 font-bold" : "text-zinc-500"}`}>
               The Bridal Edit
             </Link>
           </div>
 
           <div className={`transition-all duration-700 delay-300 ${isOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
-            <Link href="/portfolio" onClick={closeMenu} className="text-4xl tracking-tighter font-serif italic text-zinc-900 hover:text-rose-900 transition-colors">
+            <Link href="/portfolio" onClick={closeMenu} className={`text-4xl tracking-tighter font-serif italic transition-colors ${isActive("/portfolio") ? "text-zinc-950 font-bold" : "text-zinc-500"}`}>
               Wedding Gallery
             </Link>
           </div>
 
           <div className={`transition-all duration-700 delay-400 ${isOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"}`}>
-            <Link href="/services" onClick={closeMenu} className="text-4xl tracking-tighter font-serif italic text-zinc-900 hover:text-rose-900 transition-colors">
+            <Link href="/services" onClick={closeMenu} className={`text-4xl tracking-tighter font-serif italic transition-colors ${isActive("/services") ? "text-zinc-950 font-bold" : "text-zinc-500"}`}>
               The Studio
             </Link>
           </div>

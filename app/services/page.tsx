@@ -8,7 +8,7 @@ export default function ServicesPage() {
     {
       category: "The Bridal Studio",
       tagline: "Bridal mastery focused on your most precious moments.",
-      image: "https://images.unsplash.com/photo-1594463750939-ebb28c3f7f75?q=80&w=1200",
+      image: "https://images.unsplash.com/photo-1733937110329-7bfb323fc567?q=80&w=387&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       services: [
         { name: "Traditional Barat", detail: "Majestic, high-definition bridal transformations." },
         { name: "Nikah & Engagement", detail: "Soft, luminous looks focused on natural glow." },
@@ -19,7 +19,7 @@ export default function ServicesPage() {
     {
       category: "Hair & Nail Art",
       tagline: "Couture styling and precision finishing.",
-      image: "https://images.unsplash.com/photo-1632345033839-21c73b2f3d39?q=80&w=1200",
+      image: "https://images.unsplash.com/photo-1549236177-f9b0031756eb?q=80&w=386&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       services: [
         { name: "Luxury Nail Art", detail: "Acrylics, gel extensions, and bespoke hand-painted designs." },
         { name: "Couture Styling", detail: "From silk presses to intricate wedding updos." },
